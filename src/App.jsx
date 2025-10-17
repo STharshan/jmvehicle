@@ -1,7 +1,7 @@
 import BenefitsSection from "./components/BenefitsSection"
 import Hero from "./components/Hero"
 import ProcessSection from "./components/How-Work"
-import { StickyScroll } from "./components/Navbar"
+import ExpenseControlCenter from "./components/Service"
 import FinancialSuccessSection from "./components/Whychooseus"
 
 function App() {
@@ -10,10 +10,11 @@ function App() {
     <>
 
       <Hero />
-      {/* <StickyScroll /> */}
+      {/* <Index /> */}
       <FinancialSuccessSection />
       <ProcessSection />
       <BenefitsSection />
+      <ExpenseControlCenter />
     </>
   )
 }
