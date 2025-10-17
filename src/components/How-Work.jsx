@@ -42,7 +42,7 @@ export default function ProcessSection() {
     const image = imageRef.current;
     const lastCard = lastCardRef.current;
 
-    // Left column (cards + text) scroll
+    // Scroll left column smoothly
     gsap.to(leftColumn, {
       yPercent: -100 * (stages.length - 1),
       ease: "none",
@@ -55,17 +55,14 @@ export default function ProcessSection() {
       },
     });
 
-    // Image movement starts exactly when last card bottom reaches image bottom
+    // Move image together with last card
     ScrollTrigger.create({
-      trigger: containerRef.current,
-      start: () => {
-        const lastCardBottom = lastCard.getBoundingClientRect().bottom + window.scrollY;
-        const imageBottom = image.getBoundingClientRect().bottom + window.scrollY;
-        return lastCardBottom - window.innerHeight + (imageBottom - lastCardBottom);
-      },
-      end: () => `+=${image.offsetHeight}`, // move image fully
+      trigger: lastCard,
+      start: () => `bottom bottom+=0`, // when last card bottom touches bottom of viewport
+      end: () => `+=${image.offsetHeight}`, // move image equal to its height
       scrub: 1,
       onUpdate: (self) => {
+        // calculate progress and move image
         gsap.to(image, { y: -image.offsetHeight * self.progress, ease: "none" });
       },
     });
@@ -76,7 +73,7 @@ export default function ProcessSection() {
   return (
     <section
       ref={containerRef}
-      className="relative bg-[#090912] text-white py-2 px-6 overflow-hidden"
+      className="relative bg-[#090912] text-white py-24 px-6 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16">
         {/* LEFT: text + cards scroll together */}
