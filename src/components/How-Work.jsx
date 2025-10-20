@@ -43,7 +43,7 @@ export default function ProcessSection() {
     const lastCard = lastCardRef.current;
 
     // Scroll left column smoothly
-    gsap.to(leftColumn, {
+   gsap.to(leftColumn, {
       yPercent: -100 * (stages.length - 1),
       ease: "none",
       scrollTrigger: {
@@ -52,6 +52,7 @@ export default function ProcessSection() {
         end: () => `+=${window.innerHeight * stages.length}`,
         scrub: 1,
         pin: true,
+        pinSpacing: false,
       },
     });
 

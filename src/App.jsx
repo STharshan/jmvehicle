@@ -1,6 +1,7 @@
 import BenefitsSection from "./components/BenefitsSection"
 import Hero from "./components/Hero"
 import ProcessSection from "./components/How-Work"
+import { StickyScrollRevealDemo } from "./components/Navbar"
 import ExpenseControlCenter from "./components/Service"
 import FinancialSuccessSection from "./components/Whychooseus"
 
