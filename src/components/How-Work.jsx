@@ -41,13 +41,14 @@ export default function ProcessSection() {
     const leftColumn = leftColumnRef.current;
     const image = imageRef.current;
     const lastCard = lastCardRef.current;
+    const container = containerRef.current;
 
     // Scroll left column smoothly
-   gsap.to(leftColumn, {
+    gsap.to(leftColumn, {
       yPercent: -100 * (stages.length - 1),
       ease: "none",
       scrollTrigger: {
-        trigger: containerRef.current,
+        trigger: container,
         start: "top top",
         end: () => `+=${window.innerHeight * stages.length}`,
         scrub: 1,
@@ -56,15 +57,18 @@ export default function ProcessSection() {
       },
     });
 
-    // Move image together with last card
+    // Image scroll starts only when bottom of last card meets bottom of image
     ScrollTrigger.create({
       trigger: lastCard,
-      start: () => `bottom bottom+=0`, // when last card bottom touches bottom of viewport
-      end: () => `+=${image.offsetHeight}`, // move image equal to its height
+      start: () =>
+        `bottom bottom-=${image.offsetHeight * 0.3}`, // start when last card bottom aligns roughly with bottom of image
+      end: () => `+=${image.offsetHeight}`, // image scroll distance
       scrub: 1,
       onUpdate: (self) => {
-        // calculate progress and move image
-        gsap.to(image, { y: -image.offsetHeight * self.progress, ease: "none" });
+        gsap.to(image, {
+          y: -image.offsetHeight * self.progress,
+          ease: "none",
+        });
       },
     });
 
@@ -74,7 +78,7 @@ export default function ProcessSection() {
   return (
     <section
       ref={containerRef}
-      className="relative bg-[#090912] text-white py-24 px-6 overflow-hidden"
+      className="relative h-[1600px] bg-[#090912] text-white py-34 px-6"
     >
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16">
         {/* LEFT: text + cards scroll together */}
@@ -118,7 +122,9 @@ export default function ProcessSection() {
                 </div>
 
                 <h3 className="text-xl font-semibold mb-3">{s.title}</h3>
-                <p className="text-gray-400 text-sm mb-5 leading-relaxed">{s.desc}</p>
+                <p className="text-gray-400 text-sm mb-5 leading-relaxed">
+                  {s.desc}
+                </p>
 
                 <div className="flex flex-wrap gap-2">
                   {s.tags.map((t, j) => (
@@ -150,10 +156,10 @@ export default function ProcessSection() {
             <img
               src="https://framerusercontent.com/images/oUAzCBZlCCsvzmsAiYQ3RDbhyg.jpeg"
               alt="Person working on laptop"
-              className="object-cover w-full h-[480px] md:h-[550px]"
+              className="object-cover w-full h-[550px]"
             />
           </div>
-          <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-2/3 h-24 bg-blue-600/40 blur-[100px] rounded-full"></div>
+         
         </div>
       </div>
     </section>

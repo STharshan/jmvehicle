@@ -41,6 +41,43 @@ const features = [
 export default function ExpenseControlCenter() {
   const headerRef = useRef(null);
   const [headerTransform, setHeaderTransform] = useState({ opacity: 1, y: 0 });
+  const [scrollStackParams, setScrollStackParams] = useState({
+    itemDistance: 0,
+    itemScale: 0.04,
+    stackPosition: "10%",
+  });
+
+  useEffect(() => {
+    const updateScrollParams = () => {
+      const width = window.innerWidth;
+      if (width < 640) {
+        // Mobile
+        setScrollStackParams({
+          itemDistance: 0,
+          itemScale: 0.02,
+          stackPosition: "15%",
+        });
+      } else if (width < 1024) {
+        // Tablet
+        setScrollStackParams({
+          itemDistance: 0,
+          itemScale: 0.03,
+          stackPosition: "12%",
+        });
+      } else {
+        // Desktop
+        setScrollStackParams({
+          itemDistance: 0,
+          itemScale: 0.04,
+          stackPosition: "10%",
+        });
+      }
+    };
+
+    updateScrollParams();
+    window.addEventListener("resize", updateScrollParams);
+    return () => window.removeEventListener("resize", updateScrollParams);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,66 +93,66 @@ export default function ExpenseControlCenter() {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <div className="bg-black relative" style={{ perspective: "1000px" }}>
+    <div className="bg-black relative min-h-screen" style={{ perspective: "1000px" }}>
       {/* Background gradient */}
       <div className="fixed inset-0 bg-gradient-to-b from-black via-purple-950/20 to-black pointer-events-none z-0"></div>
 
       {/* Header Section */}
       <header
         ref={headerRef}
-        className="relative z-10 py-10 flex flex-col items-center justify-center text-center px-4" // reduced top/bottom padding
+        className="relative z-10 py-12 sm:py-16 md:py-20 flex flex-col items-center justify-center text-center px-4 sm:px-6"
         style={{
           opacity: headerTransform.opacity,
           transform: `translateY(${headerTransform.y}px)`,
         }}
       >
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/20 border border-blue-400/30 mb-4">
-          <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-          <span className="text-blue-300 text-sm font-medium uppercase tracking-wide">
+        <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-blue-500/20 border border-blue-400/30 mb-4 sm:mb-6">
+          <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-400 rounded-full animate-pulse"></div>
+          <span className="text-blue-300 text-xs sm:text-sm font-medium uppercase tracking-wide">
             The solution
           </span>
         </div>
 
-        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-white mb-0 leading-tight">
-          Spendwise: Your<br /> expense control center
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-white mb-0 leading-tight max-w-xs sm:max-w-xl md:max-w-2xl lg:max-w-3xl px-4">
+          Spendwise: Your <br className="hidden sm:block" /> expense control
+          center
         </h2>
       </header>
 
       {/* Scroll Stack Section */}
       <ScrollStack
-        className="relative z-10 mt-[-4rem]" // pull cards closer to header
-        itemDistance={500} // reduced from 400
-        itemScale={0.04}
+        className="relative z-10 -mt-50"
+        itemDistance={scrollStackParams.itemDistance}
+        itemScale={scrollStackParams.itemScale}
         itemStackDistance={0}
-        stackPosition="10%"
+        stackPosition={scrollStackParams.stackPosition}
         scaleEndPosition="100%"
         baseScale={1}
         rotationAmount={0}
-        blurAmount={100}
+        blurAmount={10}
         useWindowScroll={true}
       >
         {features.map((feature, index) => {
           const isImageLeft = index % 2 === 0;
+
           return (
             <ScrollStackItem key={feature.id}>
               <div
-                className="-mt-30 backdrop-blur-3xl bg-black/60 border border-white/10 rounded-3xl overflow-hidden shadow-2xl p-4 sm:p-6"
+                className="backdrop-blur-3xl bg-black/60 border border-white/10 rounded-2xl sm:rounded-3xl overflow-hidden p-4 sm:p-6 md:p-8 lg:p-10 flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-12 mx-4 sm:mx-6 md:mx-8 lg:mx-auto max-w-7xl"
                 style={{
-                  minHeight: "56rem", // reduced height
-                  display: "flex",
-                  flexDirection: isImageLeft ? "row" : "row-reverse",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: "1.5rem", // smaller text-image gap
+                  minHeight: "auto",
                 }}
               >
                 {/* Image */}
-                <div className="relative w-1/2 h-[48rem] rounded-2xl overflow-hidden">
+                <div
+                  className={`relative w-full md:w-1/2 h-48 xs:h-56 sm:h-64 md:h-72 lg:h-80 xl:h-[30rem] rounded-xl sm:rounded-2xl overflow-hidden order-1 ${
+                    isImageLeft ? "md:order-1" : "md:order-2"
+                  }`}
+                >
                   <img
                     src={feature.image}
                     alt={feature.title}
@@ -125,11 +162,15 @@ export default function ExpenseControlCenter() {
                 </div>
 
                 {/* Content */}
-                <div className="w-1/2 flex flex-col justify-center text-left">
-                  <h3 className="text-2xl sm:text-3xl font-semibold text-white mb-3">
+                <div
+                  className={`w-full md:w-1/2 flex flex-col justify-center text-center md:text-left order-2 ${
+                    isImageLeft ? "md:order-2" : "md:order-1"
+                  }`}
+                >
+                  <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-white mb-2 sm:mb-3 lg:mb-4">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
+                  <p className="text-gray-400 text-xs sm:text-sm md:text-base leading-relaxed">
                     {feature.description}
                   </p>
                 </div>
