@@ -30,7 +30,7 @@ export default function Footer() {
             alt="PPS Group Logo"
             className="h-15 mb-5 w-80 object-contain"
           />
-          <p className="leading-relaxed text-gray-800 max-w-xs">
+          <p className="leading-relaxed text-black max-w-xs">
             PPS Group delivers precision performance solutions - driving
             innovation, efficiency, and excellence across industries.
           </p>
@@ -44,7 +44,7 @@ export default function Footer() {
               <li key={i}>
                 <a
                   href={item.href} // Use Link for smooth scrolling
-                  className="transition-colors hover:text-[#36afe7] duration-200"
+                  className="transition-colors text-black hover:text-[#36afe7] duration-200"
                 >
                   {item.title}
                 </a>
@@ -59,10 +59,10 @@ export default function Footer() {
           <ul className="flex flex-col space-y-3">
             {socials.map(({ name, icon: Icon, href }, i) => (
               <li key={i} className="flex items-center gap-3">
-                <Icon size={17} className="text-gray-400" />
+                <Icon size={17} className="text-gray-800" />
                 <a
                   href={href}
-                  className="hover:text-[#36afe7] transition-colors duration-200"
+                  className="hover:text-[#36afe7] text-black transition-colors duration-200"
                 >
                   {name}
                 </a>
@@ -95,7 +95,7 @@ export default function Footer() {
             Powered by{" "}
             <a
               href="https://www.ansely.co.uk/"
-              className="text-[#00AEEF] hover:underline font-medium"
+              className="text-white hover:underline font-medium"
             >
               Ansely
             </a>
