@@ -10,26 +10,25 @@ const TestimonialCard = ({
     image,
     logo,
 }) => (
-    <div className="flex-shrink-0 w-90 bg-white/5 border border-white/10 rounded-3xl p-6 backdrop-blur-sm">
+    <div className="flex-shrink-0 w-90 bg-[#3A7C7A]/5 border border-[#3A7C7A]/10 rounded-3xl p-6 backdrop-blur-sm">
         <div className="flex items-start gap-4 mb-4">
-            <img src={image} alt={name} className="w-16 h-16 rounded-full object-cover" />
+            <img src="/logo.jpeg" alt={name} className="w-16 h-16 rounded-full object-cover" />
             <div>
-                <h5 className="text-white font-semibold text-lg">{name}</h5>
-                <p className="text-white/70">{role}</p>
+                <h5 className="text-[#3A7C7A] font-semibold text-lg">{name}</h5>
+                <p className="text-[#3A7C7A]/70">Customer</p>
             </div>
         </div>
 
-        <p className="text-white/90 text-lg leading-relaxed mb-6">{testimonial}</p>
+        <p className="text-[#3A7C7A]/90 text-lg leading-relaxed mb-6">{testimonial}</p>
 
-        <div className="flex items-center justify-between pt-4 border-t border-white/10">
+        <div className="flex items-center justify-between pt-4 border-t border-[#3A7C7A]/10">
             <div className="flex items-center gap-2">
-                <img src={logo} alt={company} className="w-6 h-6 object-cover rounded" />
-                <h5 className="text-white font-semibold text-lg">{company}</h5>
+                <img src="/logo.jpeg" alt={company} className="w-6 h-6 object-cover rounded" />
+                <h5 className="text-[#3A7C7A] font-semibold text-lg">{company}</h5>
             </div>
 
             <div className="text-right">
-                <h2 className="text-white font-bold text-4xl">{satisfaction}/10</h2>
-                <p className="text-gray-300 mt-3">Job Satisfaction</p>
+                <h2 className="text-[#3A7C7A] font-bold text-4xl">{satisfaction}/10</h2>
             </div>
         </div>
     </div>
@@ -40,50 +39,67 @@ export default function TalentifyHero() {
 
     const testimonials = [
         {
-            name: "Jon Bell",
-            role: "Data Scientist",
-            company: "Code Solutions",
+            name: "John Morley",
+            role: "Car Owner",
+            company: "Mobile Battery Service",
             testimonial:
-                "The team at Talentify understood my career goals and helped me secure a fantastic role.",
-            satisfaction: 9,
-            image:
-                "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
-            logo: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=100&h=100&fit=crop",
-        },
-        {
-            name: "Tim Chen",
-            role: "Senior Software Engineer",
-            company: "ABC Solutions",
-            testimonial:
-                "Talentify helped me land my dream remote developer job in just a few weeks.",
-            satisfaction: 9,
-            image:
-                "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop",
-            logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=100&h=100&fit=crop",
-        },
-        {
-            name: "Sarah Maplas",
-            role: "Lead UX Designer",
-            company: "Creative Studios",
-            testimonial:
-                "Thanks to Talentify, I found a perfect remote tech role that matches my skills and lifestyle.",
-            satisfaction: 8,
-            image:
-                "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
-            logo: "https://images.unsplash.com/photo-1558655146-d09347e92766?w=100&h=100&fit=crop",
-        },
-        {
-            name: "Eniola Bakare",
-            role: "Full Stack Developer",
-            company: "Abstract Studio",
-            testimonial:
-                "From start to finish, Talentify made the recruitment process super simple. Highly recommend!",
+                "Kris was quick and efficient and had the problem diagnosed and fixed at the roadside. From contact to completion took just over an hour.",
             satisfaction: 10,
-            image:
-                "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
-            logo: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=100&h=100&fit=crop",
+            image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop",
+            logo: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=100&h=100&fit=crop"
         },
-    ];
+        {
+            name: "Harry Dunne",
+            role: "Driver",
+            company: "Mobile Battery Fitter",
+            testimonial:
+                "Sister in law was in a pickle with her car, battery was dead and old. Found Kris online and thought a mobile fitter was the easiest option. Kris arrived punctually, was polite, respectful and professional. He replaced a broken terminal at no extra cost and tidied up the engine bay too. Very professional job done. I was happy to pay £160 for the excellent service.",
+            satisfaction: 9,
+            image: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=400&h=400&fit=crop",
+            logo: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=100&h=100&fit=crop"
+        },
+        {
+            name: "Barbara",
+            role: "Car Owner",
+            company: "Mobile Battery Service",
+            testimonial:
+                "I needed a new battery fitted at my home ASAP. Contacted them and had an appointment within 2 hours. Chris was very nice and even set my radio up again. Would definitely use them again and recommend to others.",
+            satisfaction: 10,
+            image: "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?w=400&h=400&fit=crop",
+            logo: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=100&h=100&fit=crop"
+        },
+        {
+            name: "Jonathan Francis",
+            role: "Driver",
+            company: "Mobile Battery Rescue",
+            testimonial:
+                "Came out to rescue me when the RAC were quoting 5 hours! Great service — arrived within 20 minutes. Chris was super helpful and friendly. Back up and running in ten minutes. Really good value as well.",
+            satisfaction: 10,
+            image: "https://images.unsplash.com/photo-1552058544-f2b08422138a?w=400&h=400&fit=crop",
+            logo: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=100&h=100&fit=crop"
+        },
+        {
+            name: "David hughes",
+            role: "Customer",
+            company: "Battery Replacement Service",
+            testimonial:
+                "Could not have asked for better service and prices. Chris pulled us out of a tight spot and more than anything, he’s a top bloke.",
+            satisfaction: 10,
+            image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&fit=crop",
+            logo: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=100&h=100&fit=crop"
+        },
+        {
+            name: "Tanya Hughes",
+            role: "Family Member",
+            company: "Mobile Auto Repair",
+            testimonial:
+                "My husband and son broke down at the Liverpool dock waiting to board the ferry to the Isle of Man. I called Kris and he arrived quickly, even on a Friday evening. He kept us updated, got the car started, and came again to change the battery. Cleaned everything down and sent pictures of every step. Very reasonable price and excellent service. Thank you Kris!",
+            satisfaction: 10,
+            image: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400&h=400&fit=crop",
+            logo: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=100&h=100&fit=crop"
+        }
+    ]
+
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -95,7 +111,7 @@ export default function TalentifyHero() {
     const duplicatedTestimonials = [...testimonials, ...testimonials, ...testimonials];
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-[#0a0e27] via-[#1a237e] to-[#1e3a8a] text-white overflow-hidden relative">
+        <div className="bg-white text-[#3A7C7A] overflow-hidden relative">
             <div className="max-w-7xl mx-auto px-6 md:px-12">
                 {/* ===== Hero Section ===== */}
                 <div
@@ -105,17 +121,18 @@ export default function TalentifyHero() {
                     {/* Left: Text */}
                     <div className="flex-1">
                         <h1 className="text-4xl mt-20 md:text-6xl font-bold leading-tight mb-4">
-                            Your gateway to <br /> remote tech careers.
+                            JM VEHICLE ASSIST
                         </h1>
-                        <p className="text-lg text-gray-300 font-semibold max-w-sm mb-20">
-                            Connect with top companies and explore roles suited to your skills and career goals.
+                        <p className="text-lg text-black font-semibold max-w-sm mb-20">
+                            FAST | RELIABLE | FRIENDLY | 5 STAR
+                            Home | Work | Roadside? We come to you!
                         </p>
                     </div>
 
                     {/* Right: Buttons */}
-                    <div className="flex gap-4 mt-26">
-                        <button className="px-5 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700 transition">
-                            Explore roles
+                    <div className="flex gap-4 mt-20">
+                        <button className="px-5 py-2 bg-[#3A7C7A] text-white font-semibold rounded-lg shadow hover:bg-blue-700 transition">
+                            Request a Quote
                         </button>
                         <button className="px-4 py-2 bg-black text-white font-semibold rounded-lg shadow hover:bg-gray-200 transition">
                             Hire talent

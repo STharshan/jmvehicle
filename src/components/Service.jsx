@@ -6,7 +6,7 @@ import "../components/card.css";
 const features = [
   {
     id: "feature-1",
-    title: "Spending Summary",
+    title: "Vehicle Battery Fitting",
     description:
       "Track and manage your weekly expenses across different categories with an intuitive dashboard that helps you stay within your spending limits.",
     image:
@@ -14,7 +14,7 @@ const features = [
   },
   {
     id: "feature-2",
-    title: "Clear Expense Insights",
+    title: "Vehicle Jumb Start Service",
     description:
       "Visualize your spending habits with our powerful expense tracking tool. Easy-to-read charts show exactly where your money goes, categorizing expenses like housing, utilities, and food.",
     image:
@@ -22,7 +22,7 @@ const features = [
   },
   {
     id: "feature-3",
-    title: "Real-Time Money Flow",
+    title: "Mobile Tyre Fitting Service",
     description:
       "Stay informed with instant updates on all your financial movements. Track incoming payments, outgoing expenses, and pending transactions in one streamlined view.",
     image:
@@ -30,7 +30,15 @@ const features = [
   },
   {
     id: "feature-4",
-    title: "Seamless Currency Exchange",
+    title: "Fuel Delivery Service",
+    description:
+      "Convert currencies instantly with our competitive exchange rates and transparent fee structure. Get real-time rates for USD, EUR, and other major currencies.",
+    image:
+      "https://framerusercontent.com/images/mCSKN73ZjLiFhtkl2DU0OmJSxXI.png",
+  },
+    {
+    id: "feature-5",
+    title: "Vehicle Diagnostics Service",
     description:
       "Convert currencies instantly with our competitive exchange rates and transparent fee structure. Get real-time rates for USD, EUR, and other major currencies.",
     image:
@@ -97,27 +105,26 @@ export default function ExpenseControlCenter() {
   }, []);
 
   return (
-    <div className="bg-black relative min-h-screen" style={{ perspective: "1000px" }}>
+    <div className="bg-white h-1000 mt-100 overflow-hidden overflow-y-hidden" >
       {/* Background gradient */}
-      <div className="fixed inset-0 bg-gradient-to-b from-black via-purple-950/20 to-black pointer-events-none z-0"></div>
 
       {/* Header Section */}
       <header
         ref={headerRef}
-        className="relative z-10 py-12 sm:py-16 md:py-20 flex flex-col items-center justify-center text-center px-4 sm:px-6"
+        className="relative z-10 py-12 flex flex-col items-center justify-center text-center px-4 sm:px-6"
         style={{
           opacity: headerTransform.opacity,
           transform: `translateY(${headerTransform.y}px)`,
         }}
       >
         <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-blue-500/20 border border-blue-400/30 mb-4 sm:mb-6">
-          <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-400 rounded-full animate-pulse"></div>
-          <span className="text-blue-300 text-xs sm:text-sm font-medium uppercase tracking-wide">
+          <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-black rounded-full animate-pulse"></div>
+          <span className="text-black text-xs sm:text-sm font-medium uppercase tracking-wide">
             The solution
           </span>
         </div>
 
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-white mb-0 leading-tight max-w-xs sm:max-w-xl md:max-w-2xl lg:max-w-3xl px-4">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-[#3A7C7A] mb-0 leading-tight max-w-xs sm:max-w-xl md:max-w-2xl lg:max-w-3xl px-4">
           Spendwise: Your <br className="hidden sm:block" /> expense control
           center
         </h2>
@@ -142,10 +149,7 @@ export default function ExpenseControlCenter() {
           return (
             <ScrollStackItem key={feature.id}>
               <div
-                className="backdrop-blur-3xl bg-black/60 border border-white/10 rounded-2xl sm:rounded-3xl overflow-hidden p-4 sm:p-6 md:p-8 lg:p-10 flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-12 mx-4 sm:mx-6 md:mx-8 lg:mx-auto max-w-7xl"
-                style={{
-                  minHeight: "auto",
-                }}
+                className="backdrop-blur-3xl bg-black/60 border overflowy-y-hidden border-white/10 rounded-2xl sm:rounded-3xl overflow-hidden p-4 sm:p-6 md:p-8 lg:p-10 flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-12 mx-4 sm:mx-6 md:mx-8 lg:mx-auto max-w-7xl"
               >
                 {/* Image */}
                 <div

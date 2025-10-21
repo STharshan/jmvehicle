@@ -18,21 +18,21 @@ export default function ProcessSection() {
       title: "Kickoff",
       desc: "The kickoff stage is where everything begins. We align with you to understand your goals, vision, and expectations through in-depth discussions and thorough research.",
       tags: ["Comprehensive Consultation", "Project Roadmap"],
-      icon: <Rocket className="w-5 h-5 text-white" />,
+      icon: <Rocket className="w-5 h-5 text-black" />,
     },
     {
       stage: "Stage 2",
       title: "Execution",
       desc: "With a clear strategy in place, we move into the execution phase, where ideas come to life. Our team works efficiently and collaboratively to implement the plan.",
       tags: ["Seamless Integration", "Real-Time Collaboration"],
-      icon: <Code2 className="w-5 h-5 text-white" />,
+      icon: <Code2 className="w-5 h-5 text-black" />,
     },
     {
       stage: "Stage 3",
       title: "Handoff",
       desc: "Once the design and development are finalized, we transition to hand-off — providing assets, documentation, and support for a smooth launch.",
       tags: ["Ongoing Support", "Documentation"],
-      icon: <Lightbulb className="w-5 h-5 text-white" />,
+      icon: <Lightbulb className="w-5 h-5 text-black" />,
       cta: "Book an Appointment",
     },
   ];
@@ -78,24 +78,24 @@ export default function ProcessSection() {
   return (
     <section
       ref={containerRef}
-      className="relative h-[1600px] bg-[#090912] text-white py-34 px-6"
+      className="relative h-[900px] bg-white text-black py-34 px-6"
     >
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16">
         {/* LEFT: text + cards scroll together */}
         <div ref={leftColumnRef} className="flex flex-col gap-8">
           {/* Text */}
           <div>
-            <div className="inline-flex items-center gap-2 border border-white/10 rounded-full px-4 py-1 bg-gradient-to-t from-[rgba(0,85,255,0.08)] to-[rgba(153,153,153,0.1)] backdrop-blur-sm mb-6">
-              <span className="text-sm text-white/90 tracking-widest uppercase">
+            <div className="inline-flex items-center gap-2 border border-black/10 rounded-full px-4 py-1 bg-gradient-to-t from-[rgba(0,85,255,0.08)] to-[rgba(153,153,153,0.1)] backdrop-blur-sm mb-6">
+              <span className="text-sm text-black/90 tracking-widest uppercase">
                 How We Work?
               </span>
-              <span className="w-2 h-2 bg-white/70 rounded-full" />
+              <span className="w-2 h-2 bg-black/70 rounded-full" />
             </div>
 
             <h2 className="text-5xl md:text-6xl font-semibold leading-tight mb-4">
               We Simplify The Journey
               <br />
-              <span className="text-white/60">From Design To Launch.</span>
+              <span className="text-black/60">From Design To Launch.</span>
             </h2>
 
             <p className="text-gray-400 max-w-xl">
@@ -110,13 +110,13 @@ export default function ProcessSection() {
               <div
                 key={i}
                 ref={i === stages.length - 1 ? lastCardRef : null}
-                className="card relative rounded-2xl border border-white/10 bg-gradient-to-b from-[#0a0a18] to-[#050509] backdrop-blur-lg p-6 hover:border-blue-500/30 transition-all"
+                className="card relative rounded-2xl border border-black/10 bg-gradient-to-b from-[#3A7C7A] to-[#050509] backdrop-blur-lg p-6 hover:border-blue-500/30 transition-all"
               >
                 <div className="flex items-center justify-between mb-5">
                   <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-blue-600/20 border border-blue-400/20 shadow-[0_0_25px_rgba(0,85,255,0.3)]">
                     {s.icon}
                   </div>
-                  <div className="px-3 py-1 text-xs rounded-lg border border-white/10 bg-blue-950/30 text-gray-200">
+                  <div className="px-3 py-1 text-xs rounded-lg border border-black/10 bg-blue-950/30 text-gray-200">
                     {s.stage}
                   </div>
                 </div>
@@ -130,7 +130,7 @@ export default function ProcessSection() {
                   {s.tags.map((t, j) => (
                     <span
                       key={j}
-                      className="px-3 py-1 text-xs rounded-lg border border-white/10 bg-white/5 text-gray-300"
+                      className="px-3 py-1 text-xs rounded-lg border border-black/10 bg-black/5 text-gray-300"
                     >
                       {t}
                     </span>
@@ -140,7 +140,7 @@ export default function ProcessSection() {
                 {s.cta && (
                   <a
                     href="/contact"
-                    className="inline-block mt-6 text-sm font-medium bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg border border-white/10 shadow-[0_0_30px_rgba(0,85,255,0.5)] transition-all"
+                    className="inline-block mt-6 text-sm font-medium bg-[#3A7C7A] hover:bg-blue-700 text-black px-5 py-2 rounded-lg border border-black/10 shadow-[0_0_30px_rgba(0,85,255,0.5)] transition-all"
                   >
                     {s.cta}
                   </a>
@@ -152,7 +152,7 @@ export default function ProcessSection() {
 
         {/* RIGHT: image */}
         <div ref={imageRef} className="relative">
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 shadow-[0_0_50px_rgba(0,85,255,0.2)]">
+          <div className="relative overflow-hidden rounded-3xl border border-black/10 shadow-[0_0_50px_rgba(0,85,255,0.2)]">
             <img
               src="https://framerusercontent.com/images/oUAzCBZlCCsvzmsAiYQ3RDbhyg.jpeg"
               alt="Person working on laptop"

@@ -30,7 +30,7 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <nav
           className={`hidden lg:flex space-x-10 font-medium uppercase tracking-wider absolute left-1/2 transform -translate-x-1/2 transition-colors duration-300 ${
-            isScrolled ? "text-white" : "text-white"
+            isScrolled ? "text-black" : "text-black"
           }`}
         >
           <a href="/#home" className="hover:text-[#0094D9] transition">
