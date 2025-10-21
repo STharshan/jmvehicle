@@ -14,7 +14,7 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 w-full font-poppins z-30 transition-all duration-300 ${
-        isScrolled ? "bg-white shadow-lg" : "bg-transparent"
+        isScrolled ? "bg-transparent" : "bg-transparent"
       } backdrop-blur-sm`}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
@@ -30,7 +30,7 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <nav
           className={`hidden lg:flex space-x-10 font-medium uppercase tracking-wider absolute left-1/2 transform -translate-x-1/2 transition-colors duration-300 ${
-            isScrolled ? "text-black" : "text-white"
+            isScrolled ? "text-white" : "text-white"
           }`}
         >
           <a href="/#home" className="hover:text-[#0094D9] transition">
