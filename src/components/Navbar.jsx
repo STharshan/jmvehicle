@@ -1,40 +1,84 @@
-"use client";
-import React from "react";
-import { Code2, Lightbulb, Rocket } from "lucide-react";
-import { StickyScroll } from "./ui/sticky-scroll-reveal";
+import React, { useState, useEffect } from "react";
+import { FiMenu, FiX } from "react-icons/fi";
 
+export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-const content = [
-
-        {
-          stage: "Stage 1",
-          title: "Kickoff",
-          desc: "We align with you to understand your goals, vision, and expectations through in-depth discussions and thorough research.",
-          tags: ["Comprehensive Consultation", "Project Roadmap"],
-          icon: <Rocket className="w-5 h-5 text-white" />,
-        },
-        {
-          stage: "Stage 2",
-          title: "Execution",
-          desc: "With a clear strategy in place, we move into the execution phase, where ideas come to life with real-time collaboration.",
-          tags: ["Seamless Integration", "Real-Time Collaboration"],
-          icon: <Code2 className="w-5 h-5 text-white" />,
-        },
-        {
-          stage: "Stage 3",
-          title: "Handoff",
-          desc: "Once the design and development are finalized, we provide assets, documentation, and support for a smooth launch.",
-          tags: ["Ongoing Support", "Documentation"],
-          icon: <Lightbulb className="w-5 h-5 text-white" />,
-          cta: "Book an Appointment",
-        },
-      ];
-    
-export function StickyScrollRevealDemo() {
   return (
-    <div className="w-full py-4">
-      <StickyScroll content={content} />
-    </div>
+    <header
+      className={`fixed top-0 left-0 w-full font-poppins z-30 transition-all duration-300 ${
+        isScrolled ? "bg-white shadow-lg" : "bg-transparent"
+      } backdrop-blur-sm`}
+    >
+      <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+        {/* Logo */}
+        <a href="#home" className="flex items-center">
+          <img
+            src="/logo.jpeg"
+            alt="ARCON Logo"
+            className="h-10 w-auto object-contain"
+          />
+        </a>
+
+        {/* Desktop Menu */}
+        <nav
+          className={`hidden lg:flex space-x-10 font-medium uppercase tracking-wider absolute left-1/2 transform -translate-x-1/2 transition-colors duration-300 ${
+            isScrolled ? "text-black" : "text-white"
+          }`}
+        >
+          <a href="/#home" className="hover:text-[#0094D9] transition">
+            Home
+          </a>
+          <a href="/#about" className="hover:text-[#0094D9] transition">
+            About
+          </a>
+          <a href="/#testimonials" className="hover:text-[#0094D9] transition">
+            Client
+          </a>
+          <a href="/#contact" className="hover:text-[#0094D9] transition">
+            Contact
+          </a>
+        </nav>
+
+        {/* Mobile Menu Icon */}
+        <div
+          className={`lg:hidden text-3xl cursor-pointer transition-colors duration-300 ${
+            isScrolled ? "text-black" : "text-white"
+          }`}
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? <FiX /> : <FiMenu />}
+        </div>
+      </div>
+
+      {/* Mobile Dropdown */}
+      <div
+        className={`lg:hidden fixed top-0 left-0 p-3 mt-20 w-full bg-black/90 backdrop-blur-sm flex flex-col items-center justify-center space-y-8 text-white text-xl font-semibold uppercase tracking-wider transition-transform duration-300 ${
+          isOpen
+            ? "translate-x-0 max-h-[80vh] overflow-y-auto"
+            : "-translate-x-full"
+        }`}
+      >
+        <a href="/#home" onClick={() => setIsOpen(false)}>
+          Home
+        </a>
+        <a href="/#about" onClick={() => setIsOpen(false)}>
+          About
+        </a>
+        <a href="/#testimonials" onClick={() => setIsOpen(false)}>
+          Client
+        </a>
+        <a href="/#contact" onClick={() => setIsOpen(false)}>
+          Contact
+        </a>
+      </div>
+    </header>
   );
 }

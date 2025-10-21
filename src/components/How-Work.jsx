@@ -61,8 +61,8 @@ export default function ProcessSection() {
     ScrollTrigger.create({
       trigger: lastCard,
       start: () =>
-        `bottom bottom-=${image.offsetHeight * 0.3}`, // start when last card bottom aligns roughly with bottom of image
-      end: () => `+=${image.offsetHeight}`, // image scroll distance
+        `bottom bottom-=${image.offsetHeight * 0.01}`, // start when last card bottom aligns roughly with bottom of image
+      end: () => `+=${image.offsetHeight*0.1}`, // image scroll distance
       scrub: 1,
       onUpdate: (self) => {
         gsap.to(image, {
