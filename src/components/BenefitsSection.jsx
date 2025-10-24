@@ -208,7 +208,7 @@ export default function BenefitsSection() {
         </p>
         
         <div className="flex gap-4 flex-wrap justify-center">
-          <button className="px-8 py-3 bg-white text-gray-900 rounded-full font-semibold hover:bg-lime-300 transition-all">
+          <button className="px-8 py-3 bg-white text-gray-900 rounded-full font-semibold hover:bg-[#045856] transition-all">
             Get Started
           </button>
           <button className="px-8 py-3 border-2 border-gray-300 text-white rounded-full font-semibold hover:bg-gray-300/10 transition-all">
