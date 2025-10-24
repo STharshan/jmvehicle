@@ -120,7 +120,7 @@ export default function ExpenseControlCenter() {
         <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-blue-500/20 border border-blue-400/30 mb-4 sm:mb-6">
           <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-black rounded-full animate-pulse"></div>
           <span className="text-black text-xs sm:text-sm font-medium uppercase tracking-wide">
-            The solution
+            Our Service
           </span>
         </div>
 
