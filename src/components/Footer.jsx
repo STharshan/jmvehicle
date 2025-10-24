@@ -14,9 +14,9 @@ export default function Footer() {
   ];
 
   const socials = [
-    { name: "Facebook", icon: Facebook, href: "https://web.facebook.com/ppsgroupinc/?_rdc=1&_rdr#" },
-    { name: "Instagram", icon: Instagram, href: "https://www.instagram.com/ppsgroupinc/" },
-    { name: "Twitter", icon: Twitter, href: "https://x.com/ppsgroupinc/" },
+    { name: "Facebook", icon: Facebook, href: "https://www.facebook.com/JMVehicleAssist" },
+    { name: "Instagram", icon: Instagram, href: "https://www.instagram.com/jmvehicleassist/" },
+    { name: "Twitter", icon: Twitter, href: "https://x.com/JMVehicleAssist" },
   ];
 
   return (
@@ -31,7 +31,7 @@ export default function Footer() {
             className="h-15 mb-5 w-80 object-contain"
           />
           <p className="leading-relaxed text-black max-w-xs">
-            PPS Group delivers precision performance solutions - driving
+            JM Vehicle delivers precision performance solutions - driving
             innovation, efficiency, and excellence across industries.
           </p>
         </div>
@@ -44,7 +44,7 @@ export default function Footer() {
               <li key={i}>
                 <a
                   href={item.href} // Use Link for smooth scrolling
-                  className="transition-colors text-black hover:text-[#36afe7] duration-200"
+                  className="transition-colors text-black hover:text-white duration-200"
                 >
                   {item.title}
                 </a>
@@ -61,8 +61,9 @@ export default function Footer() {
               <li key={i} className="flex items-center gap-3">
                 <Icon size={17} className="text-gray-800" />
                 <a
+                target="_blank"
                   href={href}
-                  className="hover:text-[#36afe7] text-black transition-colors duration-200"
+                  className="hover:text-white text-black transition-colors duration-200"
                 >
                   {name}
                 </a>
